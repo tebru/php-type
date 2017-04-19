@@ -3,7 +3,6 @@
 namespace Tebru\PhpType\Exception;
 
 use RuntimeException;
-use Throwable;
 
 /**
  * Class MalformedTypeException
@@ -12,6 +11,6 @@ use Throwable;
  *
  * @author Nate Brunette <nate.brunette@wheniwork.com>
  */
-class MalformedTypeException extends RuntimeException implements Throwable
+class MalformedTypeException extends RuntimeException
 {
 }
