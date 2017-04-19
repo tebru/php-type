@@ -7,6 +7,7 @@
 namespace Tebru\PhpType;
 
 use stdClass;
+use Tebru\PhpType\Exception\MalformedTypeException;
 
 /**
  * Class TypeToken
@@ -89,7 +90,7 @@ final class TypeToken
      * Constructor
      *
      * @param string $type
-     * @throws \Tebru\PhpType\MalformedTypeException If the type cannot be processed
+     * @throws \Tebru\PhpType\Exception\MalformedTypeException If the type cannot be processed
      */
     public function __construct(string $type)
     {
@@ -269,7 +270,7 @@ final class TypeToken
      *
      * @param string $type
      * @return void
-     * @throws \Tebru\PhpType\MalformedTypeException If the type cannot be processed
+     * @throws \Tebru\PhpType\Exception\MalformedTypeException If the type cannot be processed
      */
     private function parseType(string $type): void
     {

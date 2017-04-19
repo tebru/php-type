@@ -8,7 +8,7 @@ use DateTime;
 use IteratorAggregate;
 use PHPUnit_Framework_TestCase;
 use stdClass;
-use Tebru\PhpType\MalformedTypeException;
+use Tebru\PhpType\Exception\MalformedTypeException;
 use Tebru\PhpType\Test\Mock\PhpTypeClassParent;
 use Tebru\PhpType\Test\Mock\PhpTypeClassParentParent;
 use Tebru\PhpType\Test\Mock\PhpTypeClassWithInterface;

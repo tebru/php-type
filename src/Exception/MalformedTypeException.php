@@ -1,6 +1,6 @@
 <?php
 
-namespace Tebru\PhpType;
+namespace Tebru\PhpType\Exception;
 
 use RuntimeException;
 use Throwable;
