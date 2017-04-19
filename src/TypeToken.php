@@ -45,7 +45,7 @@ final class TypeToken
     const INTEGER = 'integer';
     const FLOAT = 'float';
     const BOOLEAN = 'boolean';
-    const ARRAY = 'array';
+    const HASH = 'array';
     const OBJECT = 'object';
     const NULL = 'null';
     const RESOURCE = 'resource';
@@ -211,7 +211,7 @@ final class TypeToken
      */
     public function isArray(): bool
     {
-        return $this->phpType === self::ARRAY;
+        return $this->phpType === self::HASH;
     }
 
     /**
@@ -379,7 +379,7 @@ final class TypeToken
             case 'boolean':
                 return self::BOOLEAN;
             case 'array':
-                return self::ARRAY;
+                return self::HASH;
             case 'null':
             case 'NULL':
                 return self::NULL;
