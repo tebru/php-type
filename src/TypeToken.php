@@ -43,15 +43,15 @@ use Tebru\PhpType\Exception\MalformedTypeException;
  */
 final class TypeToken
 {
-    const STRING = 'string';
-    const INTEGER = 'integer';
-    const FLOAT = 'float';
-    const BOOLEAN = 'boolean';
-    const HASH = 'array';
-    const OBJECT = 'object';
-    const NULL = 'null';
-    const RESOURCE = 'resource';
-    const WILDCARD = '?';
+    public const STRING = 'string';
+    public const INTEGER = 'integer';
+    public const FLOAT = 'float';
+    public const BOOLEAN = 'boolean';
+    public const HASH = 'array';
+    public const OBJECT = 'object';
+    public const NULL = 'null';
+    public const RESOURCE = 'resource';
+    public const WILDCARD = '?';
 
     /**
      * The full initial type
