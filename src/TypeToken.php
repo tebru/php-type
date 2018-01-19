@@ -92,7 +92,6 @@ final class TypeToken
      * Constructor
      *
      * @param string $type
-     * @throws \Tebru\PhpType\Exception\MalformedTypeException If the type cannot be processed
      */
     public function __construct(string $type)
     {
@@ -109,8 +108,7 @@ final class TypeToken
      */
     public static function createFromVariable($variable): TypeToken
     {
-        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
-        return is_object($variable) ? new self(get_class($variable)) : new self(gettype($variable));
+        return \is_object($variable) ? new self(\get_class($variable)) : new self(\gettype($variable));
     }
 
     /**
@@ -159,7 +157,7 @@ final class TypeToken
             return true;
         }
 
-        if (in_array($type, $this->parents, true)) {
+        if (\in_array($type, $this->parents, true)) {
             return true;
         }
 
