@@ -339,7 +339,7 @@ final class TypeToken
         // if we're not working with an object, set the raw type to
         // the core php type so we can make sure it's normalized
         if (!$this->isObject()) {
-            $this->rawType = (string)$this->phpType;
+            $this->rawType = $this->phpType;
 
             // if there aren't any generics, overwrite full type as well
             if ($this->getGenerics() === []) {
@@ -349,7 +349,7 @@ final class TypeToken
         }
 
         // use \stdClass as the class name for generic objects
-        $this->rawType = TypeToken::OBJECT === $rawType ? stdClass::class : $rawType;
+        $this->rawType = self::OBJECT === $rawType ? stdClass::class : $rawType;
 
         // if we're dealing with a real class, get parents and interfaces so
         // it's easy to check if the type is an instance of another
