@@ -95,7 +95,7 @@ final class TypeToken
      */
     public function __construct(string $type)
     {
-        $type = trim($type);
+        $type = \trim($type);
         $this->fullTypeString = $type;
         $this->parseType($type);
     }
@@ -274,14 +274,14 @@ final class TypeToken
      */
     private function parseType(string $type): void
     {
-        $start = strpos($type, '<');
+        $start = \strpos($type, '<');
         if ($start === false) {
             $this->setTypes($type);
             return;
         }
 
         // get start and end positions of generic
-        $end = strrpos($type, '>');
+        $end = \strrpos($type, '>');
         if ($end === false) {
             throw new MalformedTypeException('Could not find ending ">" for generic type');
         }
@@ -289,12 +289,12 @@ final class TypeToken
         $originalType = $type;
 
         // get generic types
-        $generics = substr($type, $start + 1, $end - $start - 1);
+        $generics = \substr($type, $start + 1, $end - $start - 1);
 
         // iterate over subtype to determine if format is <type> or <key, type>
         $depth = 0;
         $type = '';
-        foreach (str_split($generics) as $char) {
+        foreach (\str_split($generics) as $char) {
             // stepping into another generic type
             if ($char === '<') {
                 $depth++;
@@ -323,7 +323,7 @@ final class TypeToken
         $this->genericTypes[] = new TypeToken($type);
 
         // set the main type
-        $this->setTypes(substr($originalType, 0, $start));
+        $this->setTypes(\substr($originalType, 0, $start));
     }
 
     /**
@@ -353,8 +353,8 @@ final class TypeToken
 
         // if we're dealing with a real class, get parents and interfaces so
         // it's easy to check if the type is an instance of another
-        if (class_exists($rawType)) {
-            $this->parents = array_merge(class_parents($this->rawType), class_implements($this->rawType));
+        if (\class_exists($rawType)) {
+            $this->parents = \array_merge(\class_parents($this->rawType), \class_implements($this->rawType));
         }
     }
 
