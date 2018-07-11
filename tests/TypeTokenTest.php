@@ -15,13 +15,14 @@ use Tebru\PhpType\Test\Mock\PhpTypeClassWithInterface;
 use Tebru\PhpType\Test\Mock\PhpTypeInterface;
 use Tebru\PhpType\TypeToken;
 use Traversable;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class TypeTokenTest
  *
  * @author Nate Brunette <nate.brunette@wheniwork.com>
  */
-class TypeTokenTest extends PHPUnit_Framework_TestCase
+class TypeTokenTest extends TestCase
 {
     public function testConstructWithSpaces()
     {
