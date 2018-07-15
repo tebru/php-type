@@ -86,3 +86,5 @@ method
 ```php
 TypeToken::createFromVariable($variable);
 ```
+
+This uses the singleton method `::create()` which will return the same instance on duplicate types.

@@ -89,6 +89,13 @@ final class TypeToken
     private $genericTypes = [];
 
     /**
+     * An array of cached types
+     *
+     * @var TypeToken[]
+     */
+    private static $types = [];
+
+    /**
      * Constructor
      *
      * @param string $type
@@ -101,6 +108,21 @@ final class TypeToken
     }
 
     /**
+     * Singleton factory for creating types
+     *
+     * @param string $type
+     * @return TypeToken
+     */
+    public static function create(string $type): TypeToken
+    {
+        if (!isset(self::$types[$type])) {
+            self::$types[$type] = new static($type);
+        }
+
+        return self::$types[$type];
+    }
+
+    /**
      * Create a new instance from a variable
      *
      * @param mixed $variable
@@ -108,7 +130,9 @@ final class TypeToken
      */
     public static function createFromVariable($variable): TypeToken
     {
-        return \is_object($variable) ? new self(\get_class($variable)) : new self(\gettype($variable));
+        $type = \is_object($variable) ? \get_class($variable) : \gettype($variable);
+
+        return self::create($type);
     }
 
     /**
@@ -313,14 +337,14 @@ final class TypeToken
             }
 
             // add new type to list
-            $this->genericTypes[] = new TypeToken($type);
+            $this->genericTypes[] = static::create($type);
 
             // reset type buffer
             $type = '';
         }
 
         // add final type
-        $this->genericTypes[] = new TypeToken($type);
+        $this->genericTypes[] = static::create($type);
 
         // set the main type
         $this->setTypes(\substr($originalType, 0, $start));

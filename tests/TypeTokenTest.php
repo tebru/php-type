@@ -6,7 +6,6 @@ use ArrayAccess;
 use Countable;
 use DateTime;
 use IteratorAggregate;
-use PHPUnit_Framework_TestCase;
 use stdClass;
 use Tebru\PhpType\Exception\MalformedTypeException;
 use Tebru\PhpType\Test\Mock\PhpTypeClassParent;
@@ -317,5 +316,10 @@ class TypeTokenTest extends TestCase
     public function testCreateFromVariableNull()
     {
         self::assertSame('null', (string) TypeToken::createFromVariable(null));
+    }
+
+    public function testCreateSingletonReusesType()
+    {
+        self::assertSame(TypeToken::createFromVariable(false), TypeToken::createFromVariable(true));
     }
 }
