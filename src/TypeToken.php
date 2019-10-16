@@ -58,42 +58,42 @@ final class TypeToken
      *
      * @var string
      */
-    private $fullTypeString;
+    public $fullTypeString;
 
     /**
      * The core php type (string, int, etc) or class if object
      *
      * @var string
      */
-    private $rawType;
+    public $rawType;
 
     /**
      * The core php type (string, int, object, etc)
      *
      * @var string
      */
-    private $phpType;
+    public $phpType;
 
     /**
      * An array of parent classes and interfaces that a class implements
      *
      * @var array
      */
-    private $parents = [];
+    public $parents = [];
 
     /**
      * Generic types, if they exist
      *
      * @var array
      */
-    private $genericTypes = [];
+    public $genericTypes = [];
 
     /**
      * An array of cached types
      *
      * @var TypeToken[]
      */
-    private static $types = [];
+    public static $types = [];
 
     /**
      * Constructor
