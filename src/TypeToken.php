@@ -229,6 +229,20 @@ final class TypeToken
     }
 
     /**
+     * Returns true if the type is a scalar type
+     *
+     * @return bool
+     */
+    public function isScalar(): bool
+    {
+        return $this->phpType === self::INTEGER
+            || $this->phpType === self::FLOAT
+            || $this->phpType === self::STRING
+            || $this->phpType === self::BOOLEAN
+            || $this->phpType === self::NULL;
+    }
+
+    /**
      * Returns true if this is an array
      *
      * @return bool

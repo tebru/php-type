@@ -113,6 +113,48 @@ class TypeTokenTest extends TestCase
         self::assertTrue($phpType->isWildcard());
     }
 
+    public function testScalarInt()
+    {
+        $phpType = new TypeToken('int');
+
+        self::assertTrue($phpType->isScalar());
+    }
+
+    public function testScalarFloat()
+    {
+        $phpType = new TypeToken('float');
+
+        self::assertTrue($phpType->isScalar());
+    }
+
+    public function testScalarString()
+    {
+        $phpType = new TypeToken('string');
+
+        self::assertTrue($phpType->isScalar());
+    }
+
+    public function testScalarBool()
+    {
+        $phpType = new TypeToken('boolean');
+
+        self::assertTrue($phpType->isScalar());
+    }
+
+    public function testNotScalarObject()
+    {
+        $phpType = new TypeToken('object');
+
+        self::assertFalse($phpType->isScalar());
+    }
+
+    public function testNotScalarArray()
+    {
+        $phpType = new TypeToken('array');
+
+        self::assertFalse($phpType->isScalar());
+    }
+
     public function testObject()
     {
         $phpType = new TypeToken('object');
